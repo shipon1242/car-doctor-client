@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "image": "/src/assets/images/team/1.jpg",
+      "name": "James",
+      "quality": "Engine Expert"
+    },
+    {
+      "id": 2,
+      "image": "/src/assets/images/team/2.jpg",
+      "name": "Haris",
+      "quality": "Engine Expert"
+    },
+    {
+      "id": 3,
+      "image": "/src/assets/images/team/3.jpg",
+      "name": "Jeo Bond",
+      "quality": "Engine Expert"
+    }
+   
+  ]
+  

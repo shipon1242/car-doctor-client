@@ -1,0 +1,47 @@
+
+
+[
+    {
+      "id": 1,
+      "productName": "Car Engine Plug",
+      "price": 249.99,
+      "rating": 4.5,
+      "image": "/src/assets/images/products/1.png"
+    },
+    {
+      "id": 2,
+      "productName": "Car Air Filter",
+      "price": 89.99,
+      "rating": 4.2,
+      "image": "/src/assets/images/products/3.png"
+    }, 
+    {
+      "id": 3,
+      "productName": "Car metal ring",
+      "price": 15.99,
+      "rating": 4.8,
+      "image": "/src/assets/images/products/2.png"
+    },
+    {
+      "id": 4,
+      "productName": "Car engine parts",
+      "price": 299.99,
+      "rating": 4.7,
+      "image": "/src/assets/images/products/6.png"
+    },
+    {
+      "id": 5,
+      "productName": "Car tire",
+      "price": 19.99,
+      "rating": 4.6,
+      "image": "/src/assets/images/products/5.png"
+    },
+    {
+      "id": 6,
+      "productName": "Car Battery",
+      "price": 59.99,
+      "rating": 4.3,
+      "image": "/src/assets/images/products/4.png"
+    }
+  ]
+  
