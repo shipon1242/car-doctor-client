@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const CheckOut = () => {
@@ -33,25 +34,38 @@ const CheckOut = () => {
         }
         console.log(order)
 
-        fetch('http://localhost:5000/bookings', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-
-            },
-            body: JSON.stringify(order)
+        axios.post('http://localhost:5000/bookings',order,{withCredentials:true})
+        .then(res=>{
+            console.log(res.data)
+            if (res.data.insertedId) {
+                Swal.fire({
+                    title: "Order confirmed!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if(data.insertedId){
-                    Swal.fire({
-                        title: "Order confirmed!",
-                        text: "You clicked the button!",
-                        icon: "success"
-                      });
-                }
-            })
+
+
+        // fetch('http://localhost:5000/bookings', {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json"
+
+        //     },
+        //     body: JSON.stringify(order)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         if (data.insertedId) {
+        //             Swal.fire({
+        //                 title: "Order confirmed!",
+        //                 text: "You clicked the button!",
+        //                 icon: "success"
+        //             });
+        //         }
+        //     })
 
 
     }
@@ -91,7 +105,7 @@ const CheckOut = () => {
                                 </div>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn  btn-error text-white text-lg font-semibold">Order Confirm</button>
+                                <button className="btn  btn-error text-white text-lg font-semibold">Booking </button>
                             </div>
                         </form>
                     </div>

@@ -11,7 +11,7 @@ const Team = () => {
         .then(data=>{
           
             setTeam(data)
-            console.log(teams)
+            // console.log(teams)
         })
 
 
