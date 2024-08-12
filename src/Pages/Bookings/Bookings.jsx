@@ -2,21 +2,32 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import BookingRow from "./BookingRow";
 import Swal from "sweetalert2";
-import axios from "axios";
+// import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const Bookings = () => {
     const { user } = useContext(AuthContext)
     const [bookings, setBookings] = useState([])
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const axiosSecure = useAxiosSecure()
+    // const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `/bookings?email=${user?.email}`
     useEffect(() => {
 
-        axios.get(url, { withCredentials: true })
-            .then(res => {
-                console.log(res.data)
-                setBookings(res.data)
-            })
+        axiosSecure.get(url)
+        .then(res => {
+            console.log(res.data)
+            setBookings(res.data)
+        } )
 
+
+
+
+        // axios.get(url, { withCredentials: true })
+        //     .then(res => {
+        //         console.log(res.data)
+        //         setBookings(res.data)
+        //     })
 
 
         // fetch(url)
@@ -25,7 +36,7 @@ const Bookings = () => {
         //         // console.log(data)
         //         setBookings(data)
         //     ])
-    }, [url])
+    }, [url,axiosSecure])
 
     const handleDelete = (id) => {
         // console.log(id)
@@ -45,7 +56,7 @@ const Bookings = () => {
                 //     icon: "success"
                 //   });
 
-                fetch(`http://localhost:5000/bookings/${id}`, {
+                fetch(`https://car-doctor-server-omega-topaz.vercel.app/bookings/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -67,7 +78,7 @@ const Bookings = () => {
 
     }
     const handleBookingConfirm = (id) => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://car-doctor-server-omega-topaz.vercel.app/bookings/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': "application/json"

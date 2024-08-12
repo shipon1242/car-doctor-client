@@ -34,7 +34,7 @@ const CheckOut = () => {
         }
         console.log(order)
 
-        axios.post('http://localhost:5000/bookings',order,{withCredentials:true})
+        axios.post('https://car-doctor-server-omega-topaz.vercel.app/bookings',order,{withCredentials:true})
         .then(res=>{
             console.log(res.data)
             if (res.data.insertedId) {
